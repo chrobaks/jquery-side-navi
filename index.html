@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Dev</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div id="sideNavi">
+        <div class="side-navi-item item1"><div>Item 1</div></div>
+        <div class="side-navi-item item2"><div>Item 2</div></div>
+        <div class="side-navi-data">
+            <div class="side-navi-tab">
+                <div>Data Item 1</div>
+            </div>
+            <div class="side-navi-tab">
+                <div>Data Item 2</div>
+            </div>
+        </div>
+    </div>
+    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <script src="SideNavi.js"></script>
+    <script type="text/javascript">
+
+        jQuery(document).ready( function () {
+
+            SideNavi.init({
+                container : '#sideNavi',
+                item : '.side-navi-item',
+                data : '.side-navi-data',
+                tab : '.side-navi-tab',
+                active : '.active'
+            });
+
+        });
+
+    </script>
+</body>
+</html>
