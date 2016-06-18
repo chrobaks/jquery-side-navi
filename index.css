@@ -5,3 +5,15 @@ body {
     font-family: Verdana, Arial, sans-serif;
     font-size: 11px;
 }
+h2, h3 {color: #666;}
+p {padding: 3px 0;}
+div.main {
+    width: 800px;
+    margin: 0 auto;
+    padding: 0;
+    line-height: 1.9em;
+}
+span.minus {
+    color: red;
+    padding-right: 10px;
+}
