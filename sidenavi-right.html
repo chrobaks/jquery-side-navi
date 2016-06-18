@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>SideNavi Right</title>
+    <link rel="stylesheet" href="index.css">
+    <!-- activate if sllide from left
+    <link rel="stylesheet" href="sidenavi-left.css">
+    //-->
+    <!-- activate if sllide from right //-->
+    <link rel="stylesheet" href="sidenavi-right.css">
+
+</head>
+<body>
+    <!-- start sidenavi wrapper//-->
+    <div id="sideNavi">
+        <!-- sidenavi menu //-->
+        <div class="side-navi-item item1"><div>Item 1</div></div>
+        <div class="side-navi-item item2"><div>Item 2</div></div>
+        <!-- sidenavi data //-->
+        <div class="side-navi-data">
+            <div class="side-navi-tab">
+                <div>Data Item 1</div>
+            </div>
+            <div class="side-navi-tab">
+                <div>Data Item 2</div>
+            </div>
+        </div>
+    </div>
+    <!-- end sidenavi wrapper//-->
+    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <script src="SideNavi.js"></script>
+    <script type="text/javascript">
+
+        $(document).ready( function () {
+            /**
+             *  init sidenavi
+             *  first param String direction left or right
+             *  second param conf Object css data
+             **/
+            SideNavi.init('right', {
+                container : '#sideNavi',
+                item : '.side-navi-item',
+                data : '.side-navi-data',
+                tab : '.side-navi-tab',
+                active : '.active'
+            });
+
+        });
+
+    </script>
+</body>
+</html>

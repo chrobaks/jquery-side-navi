@@ -1,36 +1,58 @@
 /**
  * Object SideNavi
  * public methods : init
+ * init param : String direction
  * init param : Object css data
  */
 
 var SideNavi = ( function () {
 
 	var container = {},
-		config = {},
+		cssElements = {},
 		posStep = 30,
 		posStart = null,
 		posEnd = null,
+		posDirection = '',
 		isSlideing = false,
 		isVisible = false,
 		activeIndex = -1,
 		changeVisibility = false;
 
 	function getPosStart () {
+
 		if (posStart === null) {
-			posStart = jQuery(config.item + ':eq(0)', container).height()*1;
+
+			switch (posDirection) {
+				case 'right' :
+					posStart = $(cssElements.item + ':eq(0)', container).height()*1;
+					break;
+				case 'left' :
+					posStart = 0 - $(cssElements.data + ':eq(0)', container).width()*1;
+					break;
+			}
 		}
+
 		return posStart;
 	}
 	function getPosEnd () {
+
 		if (posEnd === null) {
-			posEnd = jQuery(config.item + ':eq(0)', container).height()*1;
-			posEnd += jQuery(config.data, container).width()*1;
+
+			switch (posDirection) {
+				case 'right' :
+					posEnd = getPosStart();
+					posEnd += $(cssElements.data, container).width()*1;
+					break;
+				case 'left' :
+					posEnd = 0;
+					break;
+			}
 		}
+
 		return posEnd;
 	}
 	function getPos (){
-		return container.css('right').replace('px','');
+		return container.css(posDirection).replace('px','');
 	}
 	function toggleIsVisible () {
 		isVisible = !(isVisible);
@@ -39,14 +61,15 @@ var SideNavi = ( function () {
 		return item.hasClass('active');
 	}
 	function setActiveTab () {
-		jQuery(config.tab + config.active, container).removeClass(config.active.replace('.',''));
-		jQuery(config.tab + ':eq(' + activeIndex + ')',container).addClass(config.active.replace('.',''));
+		$(cssElements.tab + cssElements.active, container).removeClass(cssElements.active.replace('.',''));
+		$(cssElements.tab + ':eq(' + activeIndex + ')',container).addClass(cssElements.active.replace('.',''));
 	}
 	function removeActiveItem () {
-		jQuery(config.item + config.active, container).removeClass('active');
+		$(cssElements.item + cssElements.active, container).removeClass('active');
 	}
 	function setActiveItem (item) {
 		removeActiveItem();
+		setActiveTab();
 		item.addClass('active');
 	}
 	function slideEvent () {
@@ -60,12 +83,12 @@ var SideNavi = ( function () {
 			if (isVisible && pos + posStep >= getPosEnd () || ! isVisible && pos - posStep <= getPosStart ()) {
 
 				pos = (isVisible) ?  getPosEnd () : getPosStart ();
-				container.css('right', pos+'px');
+				container.css(posDirection, pos+'px');
 				isSlideing = false;
 
 			} else {
-				container.css('right', pos+'px');
-				setTimeout(function () {slideEvent()}, 20 );
+				container.css(posDirection, pos+'px');
+				setTimeout(function () {slideEvent()}, 30 );
 			}
 
 		} else {
@@ -81,7 +104,7 @@ var SideNavi = ( function () {
 	}
 	function setEventParam (item) {
 
-		activeIndex = jQuery(config.item, container).index(item);
+		activeIndex = $(cssElements.item, container).index(item);
 
 		if (isActiveItem(item)) {
 
@@ -101,30 +124,27 @@ var SideNavi = ( function () {
 	}
 	function eventListener () {
 
-		jQuery(config.item, container).on('click', function (event) {
+		$(cssElements.item, container).on('click', function (event) {
 
 			event.preventDefault();
-			setEventParam(jQuery(this));
-			
-			if (isVisible) { setActiveTab(); }
-			
+			setEventParam($(this));
+
 			if (changeVisibility) {
-				
 				slide();
-				
 			}
 		});
 	}
-	function init (conf) {
+	function init (direction, conf) {
 
-		config = conf;
-		container = jQuery(config.container);
+		posDirection = direction;
+		cssElements = conf;
+		container = $(cssElements.container);
 
 		eventListener();
 	}
 
 	return {
 		init : init
-	}
+	};
 
 })();
