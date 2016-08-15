@@ -72,6 +72,9 @@ var SideNavi = ( function () {
 		setActiveTab();
 		item.addClass('active');
 	}
+	function setDefaultItem (item) {
+		item.removeClass('active');
+	}
 	function slideEvent () {
 
 		var pos = getPos()*1;
@@ -109,7 +112,7 @@ var SideNavi = ( function () {
 		if (isActiveItem(item)) {
 
 			toggleIsVisible();
-			removeActiveItem();
+			setDefaultItem(item);
 			changeVisibility = true;
 
 		} else {
