@@ -144,7 +144,6 @@ var SideNavi = ( function () {
 		container = $(cssElements.container);
 
 		eventListener();
-		console.log('init1: ',getPosStart(),getPosEnd(),$('.side-navi-item-default').height());
 	}
 
 	return {
