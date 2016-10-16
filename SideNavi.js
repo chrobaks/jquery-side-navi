@@ -24,7 +24,7 @@ var SideNavi = ( function () {
 
 			switch (posDirection) {
 				case 'right' :
-					posStart = $(cssElements.item + ':eq(0)', container).height()*1;
+					posStart = $(cssElements.defaultitem + ':eq(0)', container).height()*1;
 					break;
 				case 'left' :
 					posStart = 0 - $(cssElements.data + ':eq(0)', container).width()*1;
@@ -40,8 +40,8 @@ var SideNavi = ( function () {
 
 			switch (posDirection) {
 				case 'right' :
-					posEnd = getPosStart();
-					posEnd += $(cssElements.data, container).width()*1;
+					//posEnd = getPosStart();
+					posEnd = $(cssElements.data, container).width()*1;
 					break;
 				case 'left' :
 					posEnd = 0;
@@ -110,9 +110,9 @@ var SideNavi = ( function () {
 		activeIndex = $(cssElements.item, container).index(item);
 
 		if (isActiveItem(item)) {
-
 			toggleIsVisible();
 			setDefaultItem(item);
+
 			changeVisibility = true;
 
 		} else {
@@ -144,6 +144,7 @@ var SideNavi = ( function () {
 		container = $(cssElements.container);
 
 		eventListener();
+		console.log('init1: ',getPosStart(),getPosEnd(),$('.side-navi-item-default').height());
 	}
 
 	return {

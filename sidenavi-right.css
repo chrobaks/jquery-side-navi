@@ -9,6 +9,10 @@
     top: 25%;
 }
 /* items */
+.side-navi-item-default {
+    height: 50px;
+    display: none;
+}
 .side-navi-item {
     position: absolute;
     left: 0;

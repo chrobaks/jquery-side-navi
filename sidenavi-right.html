@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
     <title>SideNavi Right</title>
     <link rel="stylesheet" href="index.css">
     <!-- activate if sllide from left
@@ -47,6 +49,7 @@
     <!-- start sidenavi wrapper//-->
     <div id="sideNavi">
         <!-- sidenavi menu //-->
+        <div class="side-navi-item-default"></div>
         <div class="side-navi-item item1"><div>Item 1</div></div>
         <div class="side-navi-item item2"><div>Item 2</div></div>
         <!-- sidenavi data //-->
@@ -72,6 +75,7 @@
              **/
             SideNavi.init('right', {
                 container : '#sideNavi',
+                defaultitem : '.side-navi-item-default',
                 item : '.side-navi-item',
                 data : '.side-navi-data',
                 tab : '.side-navi-tab',
