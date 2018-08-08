@@ -5,7 +5,7 @@
  * init param : Object css data
  */
 
-var SideNavi = ( function () {
+var SideNavi = ( function ($) {
 
 	var container = {},
 		cssElements = {},
@@ -40,7 +40,6 @@ var SideNavi = ( function () {
 
 			switch (posDirection) {
 				case 'right' :
-					//posEnd = getPosStart();
 					posEnd = $(cssElements.data, container).width()*1;
 					break;
 				case 'left' :
@@ -150,4 +149,4 @@ var SideNavi = ( function () {
 		init : init
 	};
 
-})();
+})(jQuery);
