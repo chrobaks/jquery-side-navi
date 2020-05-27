@@ -33,5 +33,5 @@ implement your own settings.
 
 ### demo
 
-  - slide from right side [http://www.netcoapp.de/sidenavi/sidenavi-right.html](http://www.netcoapp.de/sidenavi/sidenavi-right.html)
-  - slide from left side [http://www.netcoapp.de/sidenavi/sidenavi-left.html](http://www.netcoapp.de/sidenavi/sidenavi-left.html)
+  - slide from right side [https://www.netcodev.de/sidenavi/sidenavi-right.html](https://www.netcodev.de/sidenavi/sidenavi-right.html)
+  - slide from left side [https://www.netcodev.de/sidenavi/sidenavi-left.html](https://www.netcodev.de/sidenavi/sidenavi-left.html)
